@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { userRouter } from "./routes/users.js";
+import { pinRouter } from "./routes/pins.js";
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const URL = process.env.MONGO_URL;
 
 app.use(express.json());
 app.use("/user", userRouter);
+app.use("/pin", pinRouter);
 
 mongoose
   .connect(URL, {
